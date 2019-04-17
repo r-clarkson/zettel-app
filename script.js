@@ -1,4 +1,5 @@
 var tags = "";
+
 $(document).ready(function () {
     interact('.draggable')
         .draggable({
@@ -18,7 +19,13 @@ $(document).ready(function () {
             // call this function on every dragmove event
             onmove: dragMoveListener
         });
+    getUserZettels();
 });
+
+function getUserZettels(){
+    var zettels = google.script.run.get_all_zets("");
+    console.log(zettels);
+}
 
 function dragMoveListener(event) {
     var target = event.target,
@@ -41,7 +48,6 @@ $(function () {
 });
 
 function runTranslation() {
-    console.log(tags);
     var values = [$('#title-add-form-field').val(),
     $('#note-add-form-field').val(),
     tags.substring(0, tags.length - 2),
