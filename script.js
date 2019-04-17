@@ -22,8 +22,7 @@ $(document).ready(function () {
     getUserZettels();
 });
 
-function getUserZettels(){
-    var zettels = google.script.run.get_all_zets("");
+function printZettels(zettels){
     console.log(zettels);
 }
 
